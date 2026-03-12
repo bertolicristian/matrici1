@@ -74,13 +74,48 @@
             return max;
         }
 
+        static bool es5(int[,] M, int X)
+        {
+            for (int i = 0; i < M.GetLength(0); i++)
+            {
+                for (int j = 0; j < M.GetLength(1);j++)
+                {
+                    if (X == M[i, j])
+                    {
+                        return true;
+                    }
+
+                }
+            }
+
+            return false;
+        }
+
+        static int[,] es6(int[,] M)
+        {
+            int[,] M2 = new int[M.GetLength (0), M.GetLength(1)];
+
+            for (int i = 0;i < M.GetLength (0);i++)
+            {
+              
+                for (int j = 0;j < M.GetLength (1);j++)
+                {
+                    M2[i,j] = M[i,j];
+                }
+            }
+
+            return M2;
+
+        }
+
 
         static void Main(string[] args)
         {
             int es1 = 0, es3 = 0, es4 = 0;
             float es2 = 0;
+            int[,] Es6;
 
-            int[,] M = { { 2, 7, 6 }, { 3, 5, 7 }, { 4, 6, 8 } };
+            int[,] M = { { 7, 2, 6 }, { 3, 5, 7 }, { 4, 6, 8 } };
 
             es1 = somma(M);
 
@@ -97,6 +132,27 @@
             es4 = max(M);
 
             Console.WriteLine(es4);
+
+            Console.WriteLine("quale valore vuoi sapere se appartiene alla matrice?");
+            int X = Convert.ToInt32(Console.ReadLine());
+
+            if (es5(M,X) == true)
+            {
+                Console.WriteLine("appartiene");
+            }
+
+            else
+            {
+                Console.WriteLine("non appartiene");
+            }
+
+            for (int i = 0; i < M.GetLength(0); i++)
+            {
+                for (int j = 0; j < M.GetLength(1); j++)
+                {
+                    
+                }
+            }
 
         }
     }
